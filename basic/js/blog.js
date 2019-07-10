@@ -36,7 +36,7 @@ if(articleSection){
         articles += '<dd>' + data.articles[i].comments + '</dd>';
         
         articles += '<dt>Time:</dt>';
-        articles += '<dd>' + data.articles[i].time + '</dd>';
+        articles += '<dd>' + data.articles[i].time + 'min</dd>';
         
         articles += '</dl>';
         
