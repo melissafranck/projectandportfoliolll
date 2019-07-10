@@ -19,6 +19,10 @@ if(articleSection){
         
         //adds images
         articles += '<p class="thumnail"><img src="' + data.articles[i].image + '"alt="' + data.articles[i].title + '"></p>';
+        
+        //adds title
+        articles += '<h3>' + data.articles[i].title + '</h3>';
+        
         articles += '</article>';
     }
     
