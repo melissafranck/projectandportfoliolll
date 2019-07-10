@@ -3,5 +3,6 @@
 //ajax to load json file
 let xhr = new XMLHttpRequest();
 xhr.onload = function(){
-    
+//save json data
+    let data = JSON.parse(xhr.responseText);
 }
