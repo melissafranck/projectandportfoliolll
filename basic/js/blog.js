@@ -15,10 +15,13 @@ if(articleSection){
     
     //loops through json data
     for(let i=0; i < data.articles.length; i++){
+       articles += '<article>';
         
+        articles += '</article>';
     }
-}
     
+    articleSection.querySelector('h2').insertAdjacentHTML('afterend', articles);
+}   
 }
 //call ajax
 xhr.open('GET', 'https://melissafranck.github.io/mindfuldata.json', true)
