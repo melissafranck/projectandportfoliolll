@@ -26,6 +26,20 @@ if(articleSection){
         //adds description
         articles += '<p>' + data.articles[i].description + '</p>';
         
+        //adds key values
+        articles += '<dl>'; 
+        
+        articles += '<dt>Author:</dt>';      
+        articles += '<dd>' + data.articles[i].author + '</dd>';
+        
+        articles += '<dt>Comments:</dt>';
+        articles += '<dd>' + data.articles[i].comments + '</dd>';
+        
+        articles += '<dt>Time:</dt>';
+        articles += '<dd>' + data.articles[i].time + '</dd>';
+        
+        articles += '</dl>';
+        
         articles += '</article>';
     }
     
