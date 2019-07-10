@@ -23,6 +23,9 @@ if(articleSection){
         //adds title
         articles += '<h3>' + data.articles[i].title + '</h3>';
         
+        //adds description
+        articles += '<p>' + data.articles[i].description + '</p>';
+        
         articles += '</article>';
     }
     
