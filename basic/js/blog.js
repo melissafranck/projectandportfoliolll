@@ -17,6 +17,8 @@ if(articleSection){
     for(let i=0; i < data.articles.length; i++){
        articles += '<article>';
         
+        //adds images
+        articles += '<p class="thumnail"><img src="' + data.articles[i].image + '"alt="' + data.articles[i].title + '"></p>';
         articles += '</article>';
     }
     
