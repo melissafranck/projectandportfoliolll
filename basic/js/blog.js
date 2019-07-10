@@ -7,7 +7,17 @@ xhr.onload = function(){
 let data = JSON.parse(xhr.responseText);
    
 //insert the html articles
-let articleSection = document.querySelector('#blog');   
+let articleSection = document.querySelector('#blog');
+    
+//link json file parameters
+if(articleSection){
+    let articles = '';
+    
+    //loops through json data
+    for(let i=0; i < data.articles.length; i++){
+        
+    }
+}
     
 }
 //call ajax
