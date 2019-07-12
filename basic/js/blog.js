@@ -1,4 +1,4 @@
-//document.querySelector("#blog h2").innerHTML = "New Text";
+document.querySelector("#blog h2").innerHTML = "Nature's Table";
 
 //ajax to load json file
 let xhr = new XMLHttpRequest();
@@ -38,14 +38,17 @@ if(articleSection){
         articles += '<dt>Time:</dt>';
         articles += '<dd>' + data.articles[i].time + 'min</dd>';
         
+        //read more buttons
+        articles += '<button><a href="https://google.com">Read More</a></button>';
+        
         articles += '</dl>';
         
         articles += '</article>';
     }
     
     articleSection.querySelector('h2').insertAdjacentHTML('afterend', articles);
-}   
+}
 }
 //call ajax
-xhr.open('GET', 'https://melissafranck.github.io/mindfuldata.json', true)
+xhr.open('GET', 'https://melissafranck.github.io/mindfuldata.json', true);
 xhr.send(null);
