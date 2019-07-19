@@ -1,67 +1,101 @@
-/* TYPOGRAPHY DEFAULTS
+#gallery {
+	transform: rotate(0deg);
+	margin-top: 5rem;
+	margin-bottom: 5rem;
+	padding-bottom: 3rem;
+	overflow: hidden;
+}
+
+/* MAIN IMAGE 
 ====================================================================== */
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
-body {
-	padding: 0 2rem;	
-	font: 1.5rem/1.4 'Open Sans', Helvetica, Arial, sans-serif;
-	background: #222222 url('images/txture.png') repeat top left;
-	color: #888888;
-}
-
-h2, h3 { font-size: 2.4rem; }
-h2 {
-	text-transform: uppercase;
-	border-bottom: 2px solid #333333;
-	margin-bottom: 2rem;
-	font-weight: 300;
-	letter-spacing: -0.15rem;
-	text-align: center;
-	color: #555555;
-}
-@media (min-width: 800px) {
-	h2 { 
-		font-size: 3.2rem; 
-		text-align: left;
-	}
-}
-
-h2 strong { 
-	font-weight: 800; 
-	color: #888888;
-}
-h3 { 
-	font-weight: 800; 
-	line-height: 1.25;
-	color: #f0f0f0;
-}
-p + p { margin-top: 2rem; }
-
-
-/* SECTION
-====================================================================== */
-section {
+#gallery article {
+	display: none;
 	position: relative;
-	max-width: 1000px;
-	margin: 5rem auto;
+	overflow: hidden;
+	margin-bottom: 2rem;
 }
+#gallery article img { filter: grayscale(50%); }
 
-/* Floating Clearfix */
-section::after {
-	content: "";
-	display: block;
-	clear: both;
-}
-
-/* GALLERY IMAGE 
+/* GALLERY DETAILS
 ====================================================================== */
-#gallery img { 
-	display: block;
-	margin-bottom: 1rem;
-	filter: grayscale(50%); 
+#gallery h3,
+.author {
+	background: #f0f0f0;
+	position: absolute;	
+	left: 0;
+}
+#gallery h3 {
+	bottom: 6rem;
+	padding: 1rem 2rem;
+}
+#gallery p { margin: 0; }
+.author {
+	bottom: 4rem;
+	font-size: 1.4rem;
+	padding: 0 2.5rem 1rem 2rem;
+}
+.author::before {
+	content: "\f007";
+	display: inline-block;
+	font: 1.25rem FontAwesome;
+	color: rgba(0,0,0,0.25);
+	margin: 0 0.5rem;
 }
 
-/* PAGINATION
+/* Display on Larger Screens */
+@media (min-width: 800px) {
+	#gallery article { display: block; }
+}
+
+
+/* PAGINATION THUMBNAILS
 ====================================================================== */
+.pagination li {
+	position: relative;
+	list-style: none;
+	width: 100%;
+	height: 15rem;
+	overflow: hidden;
+	transition: all 0.5s;
+}
+.pagination li:not(:nth-last-of-type(2)) { margin-bottom: 2rem; }
+.pagination img {
+	width: 100%;
+	filter: grayscale(50%);
+	height: auto;
+}
+
+/* Horizontal & Interaction on Larger Screens */
+@media (min-width: 800px) {
+	.pagination li {
+		filter: grayscale(75%);
+		width: calc(20% - 6rem/5);
+		height: 15rem;
+		float: left;
+		cursor: pointer;
+	}
+	.pagination li:not(:nth-last-of-type(2)) { margin-bottom: 0; }
+	.pagination li:not(:nth-of-type(2)) { margin-left: 1.5rem; }
+	.pagination img {
+		width: auto;
+		height: 100%;
+	}	
+	.pagination li:hover { filter: grayscale(50%); }
+	.pagination li:not(.active):hover { transform: scale(1.075); } 
+	.pagination .active::before { 
+		content: "";
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 1;
+		background: rgba(0,0,0,0.85);
+	} 
+}
+
+
 @keyframes bounce-left {
 	0% { transform: translateX(0); }
 	100% { transform: translateX(-0.5rem); }
@@ -71,53 +105,57 @@ section::after {
 	100% { transform: translateX(0.5rem); }
 }
 
+
+/* Next & Previous Buttons */
 .pagination li:first-of-type,
 .pagination li:last-of-type {
-	display: block;
-	position: absolute;
-	top: calc(50% - 5rem);
-	margin: 0;
-	width: 5rem;
-	height: 10rem;
-	transition: all 0.5s;
-}	
-.pagination li:first-of-type { left: 0; }
-.pagination li:last-of-type { right: 0; }
-
-.pagination li:first-of-type button,
-.pagination li:last-of-type button {
-	display: block;
-	width: 100%;
-	height: 100%;
-	background: #222222;
-	text-indent: -9999px;
-	line-height: 1;
-	cursor: pointer;
+	display: none;
 }
-.pagination li:first-of-type button:hover,
-.pagination li:last-of-type button:hover {
-	background: #333333;
-}
-.pagination li:first-of-type button:active,
-.pagination li:last-of-type button:active {
-	background: #111111;
-}
-.pagination li:first-of-type button::after,
-.pagination li:last-of-type button::after {
-	display: block;
-	position: absolute;
-	top: calc(50% - 2rem);
-	background: none;
-	font: 4rem FontAwesome;
-	color: #f0f0f0;
-	text-indent: 0;
-}
-.pagination li:first-of-type button::after { content: "\f0d9"; left: 1.5rem; }
-.pagination li:first-of-type button:hover::after { 
-	animation: bounce-left 0.5s infinite alternate; 		
-}
-
-.pagination li:last-of-type button::after { content: "\f0da"; right: 1.5rem; }
-.pagination li:last-of-type button:hover::after { 
-	animation: bounce-right 0.5s infinite alternate; 		
+	
+/* Display on Larger Screens */
+@media (min-width: 800px) {
+	.pagination li:first-of-type,
+	.pagination li:last-of-type {
+		display: block;
+		position: absolute;
+		top: calc(50% - 18rem);
+		margin: 0;
+		width: 5rem;
+		height: 15rem;
+	}	
+	.pagination li:first-of-type { left: -5rem; }
+	.pagination li:last-of-type { right: -5rem; }
+	#gallery:hover .pagination li:first-of-type { left: 0; }
+	#gallery:hover .pagination li:last-of-type { right: 0; }
+	
+	.pagination li:first-of-type button,
+	.pagination li:last-of-type button {
+		display: block;
+		width: 100%;
+		height: 100%;
+		background: #222222;
+		text-indent: -9999px;
+		line-height: 1;
+		cursor: pointer;
+	}
+	.pagination li:first-of-type button::after,
+	.pagination li:last-of-type button::after {
+		display: block;
+		position: absolute;
+		top: calc(50% - 2rem);
+		background: none;
+		font: 4rem FontAwesome;
+		color: #f0f0f0;
+		text-indent: 0;
+	}
+	.pagination li:first-of-type button::after { content: "\f0d9"; left: 1.5rem; }
+	.pagination li:first-of-type button:hover::after { 
+		animation: bounce-left 0.5s infinite alternate; 		
+	}
+	
+	.pagination li:last-of-type button::after { content: "\f0da"; right: 1.5rem; }
+	.pagination li:last-of-type button:hover::after { 
+		animation: bounce-right 0.5s infinite alternate; 		
+	}
+	
 }

@@ -1,5 +1,5 @@
 //changing the image
-function changeImage(event){
+function changeImage(event) {
     
     //setting variables
     let image = event.target.src;
@@ -19,8 +19,9 @@ let thumbnails = document.querySelectorAll('.pagination img');
 
 //for loop adding listeners
 for (let i = 0; i < thumbnails.length; i++){
-    thumbnails[i].addEventListener('click', changeImage)
+    thumbnails[i].addEventListener('click', changeImage);
 }
+
 
 //changing image via next button
 function nextImage(event){
@@ -83,11 +84,11 @@ function previousImage(event) {
     
     //determine previous image
     if (activeIndex <= 1) {
-		let previousIndex = 5;
-		let previousListItem = 6;
+		var previousIndex = 5;
+		var previousListItem = 6;
 	} else {
-		let previousIndex = activeIndex - 1;
-		let previousListItem = activeListItem - 1;		
+		var previousIndex = activeIndex - 1;
+		var previousListItem = activeListItem - 1;		
 	}
     
     //changing large image
@@ -105,7 +106,7 @@ function previousImage(event) {
 let thumbnails = document.querySelectorAll('.pagination img');
 
 //looping to add event listeners
-for (var i=0; i < thumbnails.length; i++) {
+for (let i=0; i < thumbnails.length; i++) {
 	thumbnails[i].addEventListener("click", changeImage);
 }
 
