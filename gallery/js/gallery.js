@@ -52,4 +52,15 @@ function nextImage(event){
         let nextIndex = activeIndex + 1;
         let nextListItem = activeListItem + 1;
     }
+    
+    //change the main image
+    let image = document.querySelector('.pagination li:nth-of-type(' +nextListItem+ ') img').src;
+    let largeImage = document.querySelector('#gallery img');
+    largeImage.src = image;
+    
+    //changed the active indicator
+    document.querySelector("#gallery .active").classList.remove("active");
+    let parent = document.querySelector('.pagination li:nth-of-type(' + nextListItem + ')');
+    parent.className = 'active';
+
 }
