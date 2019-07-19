@@ -13,3 +13,11 @@ function changeImage(event){
     document.querySelector("#gallery .active").classList.remove("active");
     parent.className = 'active';
 }
+
+//event listeners for thumbnails
+let thumbnails = document.querySelectorAll('.pagination img');
+
+//for loop adding listeners
+for (let i = 0; i < thumbnails.length; i++){
+    thumbnails[i].addEventListener('click', changeImage)
+}
