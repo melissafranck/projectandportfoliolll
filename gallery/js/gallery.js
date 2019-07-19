@@ -100,3 +100,18 @@ function previousImage(event) {
 	let parent = document.querySelector('.pagination li:nth-of-type(' + previousListItem + ')');
 	parent.className = 'active';
 }
+
+//adding event listeners too all the thumbnails
+let thumbnails = document.querySelectorAll('.pagination img');
+
+//looping to add event listeners
+for (var i=0; i < thumbnails.length; i++) {
+	thumbnails[i].addEventListener("click", changeImage);
+}
+
+//adding the event to the next and previous buttons
+let next = document.querySelector('.pagination li:last-of-type button');
+next.addEventListener("click", nextImage);
+
+let previous = document.querySelector('.pagination li:first-of-type button');
+previous.addEventListener("click", previousImage);
