@@ -64,3 +64,20 @@ function nextImage(event){
     parent.className = 'active';
 
 }
+
+//changing image via previous button
+function previousImage(event) {
+	
+	// find current image
+	var thumbnails = document.querySelectorAll('.pagination li');
+	var activeIndex; 
+	var activeListItem; 
+    
+    //for loop changing image
+	for (var i=0; i < thumbnails.length; i++) {
+		if (thumbnails[i].className == 'active') {
+			activeIndex = i;
+			activeListItem = i + 1;
+		}
+    }
+}
