@@ -21,3 +21,28 @@ let thumbnails = document.querySelectorAll('.pagination img');
 for (let i = 0; i < thumbnails.length; i++){
     thumbnails[i].addEventListener('click', changeImage)
 }
+
+//changing image via next button
+function nextImage(event){
+    
+    //find current image
+    let thumbnails = document.querySelectorAll('.pagination li');
+    
+    //js variable
+    let activeIndex;
+    
+    //css variable
+    let activeListItem;
+    
+    //for loop changing image
+    for(let i = 0; i < thumbnails.length; i++){
+        
+        //conditional
+        if(thumbnails[i].className == 'active'){
+            activeIndex = i;
+            activeListItem = i + 1;
+        }
+    }
+    
+    
+}
