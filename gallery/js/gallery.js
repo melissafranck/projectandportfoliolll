@@ -69,15 +69,34 @@ function nextImage(event){
 function previousImage(event) {
 	
 	// find current image
-	var thumbnails = document.querySelectorAll('.pagination li');
-	var activeIndex; 
-	var activeListItem; 
+	let thumbnails = document.querySelectorAll('.pagination li');
+	let activeIndex; 
+	let activeListItem; 
     
     //for loop changing image
-	for (var i=0; i < thumbnails.length; i++) {
+	for (let i=0; i < thumbnails.length; i++) {
 		if (thumbnails[i].className == 'active') {
 			activeIndex = i;
 			activeListItem = i + 1;
 		}
     }
+    
+    //determine previous image
+    if (activeIndex <= 1) {
+		let previousIndex = 5;
+		let previousListItem = 6;
+	} else {
+		let previousIndex = activeIndex - 1;
+		let previousListItem = activeListItem - 1;		
+	}
+    
+    //changing large image
+    let image = document.querySelector('.pagination li:nth-of-type(' + previousListItem + ') img').src;
+	let largeImage = document.querySelector('#gallery img');
+	largeImage.src = image;
+    
+    //changing active indicator
+    document.querySelector("#gallery .active").classList.remove("active");
+	let parent = document.querySelector('.pagination li:nth-of-type(' + previousListItem + ')');
+	parent.className = 'active';
 }
