@@ -44,5 +44,12 @@ function nextImage(event){
         }
     }
     
-    
+    //conditional to determine next image
+    if(activeIndex >= 5){
+        let nextIndex = 1;
+        let nextListItem = 2;
+    } else{
+        let nextIndex = activeIndex + 1;
+        let nextListItem = activeListItem + 1;
+    }
 }
