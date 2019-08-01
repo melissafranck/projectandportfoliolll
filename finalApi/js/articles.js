@@ -9,39 +9,39 @@ let data = JSON.parse(xhr.responseText);
     
     //insert the html articles
 let articleSection = document.querySelector('#blog');
-    let articles = '';
+        let articles = '';
 
 //link json file parameters
 if(articleSection){
-    
+
     
        articles += '<article>';
        
         //adds title
         articles += '<h3>' + data.date_range + '</h3>';
-            console.log(data.date_range);
+            console.log(data);
 
         //adds description
         articles += '<p>' + data.description + '</p>';
         
-   /*     //adds key values
+      //adds key values
         articles += '<dl>'; 
         
-        articles += '<dt>Author:</dt>';      
-        articles += '<dd>' + data.articles[i].author + '</dd>';
+        articles += '<dt>Compatibility:</dt>';      
+        articles += '<dd>' + data.compatibility + '</dd>';
         
-        articles += '<dt>Comments:</dt>';
-        articles += '<dd>' + data.articles[i].comments + '</dd>';
+        articles += '<dt>Moods:</dt>';
+        articles += '<dd>' + data.mood + '</dd>';
         
-        articles += '<dt>Time:</dt>';
-        articles += '<dd>' + data.articles[i].time + 'min</dd>';
+        articles += '<dt>Lucky Time:</dt>';
+        articles += '<dd>' + data.lucky_time + '</dd>';
         
         //read more buttons
-        articles += '<button><a href="https://google.com">Read More</a></button>';
+        articles += '<button><a href="http://astrology.kudosmedia.net/m/aries?day=today">Read More</a></button>';
         
         articles += '</dl>';
         
-        articles += '</article>';*/
+        articles += '</article>';
     }
     
     articleSection.querySelector('h3').insertAdjacentHTML('afterend', articles);
